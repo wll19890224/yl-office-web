@@ -61,12 +61,10 @@ const options3 = ref(
   }))
 );
 
-
-
-
 const selected1 = ref(undefined);
 const selected2 = ref(undefined);
 const data_type = ref(undefined);
+const isNeedUplaodclinical = ref(false);
 const params = ref({
   data_paired: undefined,
   data_suffix: undefined,
@@ -257,6 +255,7 @@ const showConfirm = () => {
 
 const handleChange = (val) => {
   if(val == 'GeneExpr'){
+    isNeedUplaodclinical.value = false
     childOptions.value = [
       {
         name: 'surv_type',
@@ -312,6 +311,7 @@ compressed file.`
       }
     ]
   }else if(val == 'RNAseq'){
+    isNeedUplaodclinical.value = true
     childOptions.value = [
       {
         name: 'data_paired',
@@ -595,7 +595,7 @@ onMounted(() => {
                     >
                       <a-button>
                         <upload-outlined></upload-outlined>
-                        Click to Select File
+                        Click to Select GeneExpr File
                       </a-button>
                     </a-upload>
                     <div v-for="(file, index) in fileListProgres" :key="index">
@@ -605,7 +605,7 @@ onMounted(() => {
                       <a-progress :percent="file.percent" />
                     </div>
                   </div>
-                  <div class="upload_two">
+                  <div class="upload_two" v-if="isNeedUplaodclinical == true">
                     <a-upload
                       v-model:file-list="fileList2"
                       :showUploadList="false"
@@ -616,7 +616,7 @@ onMounted(() => {
                     >
                       <a-button>
                         <upload-outlined></upload-outlined>
-                        Click to Select File two
+                        Click to Select Clinical Phenotype File
                       </a-button>
                     </a-upload>
                     <div v-for="(file2, index) in fileListProgres2" :key="index">
