@@ -65,6 +65,7 @@ const selected1 = ref(undefined);
 const selected2 = ref(undefined);
 const data_type = ref(undefined);
 const isNeedUplaodclinical = ref(false);
+const isNeedUplaodGen = ref(false);
 const params = ref({
   data_paired: undefined,
   data_suffix: undefined,
@@ -256,6 +257,7 @@ const showConfirm = () => {
 const handleChange = (val) => {
   if(val == 'GeneExpr'){
     isNeedUplaodclinical.value = false
+    isNeedUplaodGen.value = true
     childOptions.value = [
       {
         name: 'surv_type',
@@ -312,6 +314,7 @@ compressed file.`
     ]
   }else if(val == 'RNAseq'){
     isNeedUplaodclinical.value = true
+    isNeedUplaodGen.value = true
     childOptions.value = [
       {
         name: 'data_paired',
@@ -584,7 +587,7 @@ onMounted(() => {
                   </div>
                 </template>
                 <div style="width: 100%; margin-top: 10px;padding-left: 120px;display: flex;justify-content: flex-start;">
-                  <div class="upload_one" style="margin-right:15px">
+                  <div class="upload_one" style="margin-right:15px" v-if="isNeedUplaodGen == true">
                     <a-upload
                       v-model:file-list="fileList"
                       :showUploadList="false"
