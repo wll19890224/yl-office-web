@@ -133,8 +133,6 @@ const handleFileChange2 = (event) => {
 };
 
 const confirm = () => {
-
-
   console.log('selected1',selected1.value)
   console.log('selected2',selected2.value)
   console.log('data_type',data_type.value)
@@ -300,6 +298,7 @@ const handleChange = (val) => {
     childOptions.value = [
       {
         name: 'Surv Type',
+        id: 'surv_type',
         options: [{
           value: 'Recurrence',
           label: 'Recurrence',
@@ -313,6 +312,7 @@ const handleChange = (val) => {
           Death: Counting from diagnosis date, the time of overall survival (OS)`
       },
       {
+        id: 'pred_err',
         name: 'Prediction Error',
         options: [{
           value: 'Yes',
@@ -325,6 +325,7 @@ const handleChange = (val) => {
         tip: `If you choose to estimate prediction error, you must upload clinical phenotype data.`
       },
       {
+        id: 'notify_by_email',
         name: 'Notify By Email',
         options: [{
           value: 'Yes',
@@ -338,6 +339,7 @@ const handleChange = (val) => {
 missing genes etc. will be sent to your email address.`
       },
       {
+        id: 'rpt_by_email',
         name: 'Rpt By Email',
         options: [{
           value: 'Yes',
@@ -356,6 +358,7 @@ compressed file.`
     isNeedUplaodGen.value = true
     childOptions.value = [
       {
+        id: 'data_paired',
         name: 'Data Paired',
         options: [{
           value: 'Paired end',
@@ -368,6 +371,7 @@ compressed file.`
         tip: `Please specify your RNA-seq data as paired-end or single-end.`
       },
       {
+        id: 'rna_strandness',
         name: 'Rna Strandness',
         options: rna_standess_option,
         type: 'select',
@@ -381,6 +385,7 @@ compressed file.`
         Default is “Unstranded”)`
       },
       {
+        id: 'merge',
         name: 'Merge',
         options: [{
           value: 'Yes',
@@ -395,6 +400,7 @@ compressed file.`
         Default value is ‘No’`
       },
       {
+        id: 'surv_type',
         name: 'Surv Type',
         options: [{
           value: 'Recurrence',
@@ -409,6 +415,7 @@ compressed file.`
           Death: Counting from diagnosis date, the time of overall survival (OS)`
       },
       {
+        id: 'pred_err',
         name: 'Pred Error',
         options: [{
           value: 'Yes',
@@ -421,6 +428,7 @@ compressed file.`
         tip: `If you choose to estimate prediction error, you must upload clinical phenotype data.`
       },
       {
+        id: 'adapter',
         name: 'Adapter',
         options: [],
         type: 'input',
@@ -431,6 +439,7 @@ compressed file.`
           please Use ‘|‘ as a split match like [‘xxxx|xxxx’].`
       },
       {
+        id: 'data_suffix',
         name: 'Data Suffix',
         options: [],
         type: 'input',
@@ -442,6 +451,7 @@ compressed file.`
           extension, please leave it empty.`
       },
       {
+        id: 'data_ext',
         name: 'data Ext',
         options: [],
         type: 'input',
@@ -451,6 +461,7 @@ compressed file.`
           please enter ‘.fastq’`
       },
       {
+        id: 'notify_by_email',
         name: 'Notify By Email',
         options: [{
           value: 'Yes',
@@ -464,6 +475,7 @@ compressed file.`
 missing genes etc. will be sent to your email address.`
       },
       {
+        id: 'rpt_by_email',
         name: 'Rpt By Email',
         options: [{
           value: 'Yes',
@@ -582,7 +594,7 @@ onMounted(() => {
                       v-if="item.type == 'select'"
                       :placeholder="item.name"
                       style="width: 400px; margin-top: 10px; margin-right: 10px"
-                      v-model:value="params[item.name]"
+                      v-model:value="params[item.id]"
                       :options="item.options"
                     >
                       <template #suffix>
@@ -596,7 +608,7 @@ onMounted(() => {
                       v-if="item.type == 'select1'"
                       :placeholder="item.name"
                       style="width: 400px; margin-top: 10px; margin-right: 10px"
-                      v-model:value="params[item.name]"
+                      v-model:value="params[item.id]"
                       @change="handleChange1"
                       :options="item.options"
                     >
@@ -607,7 +619,7 @@ onMounted(() => {
                         ></i>
                       </template>
                     </Select>
-                    <a-input v-if="item.type == 'input'" style="width: 400px; margin-top: 10px; margin-right: 10px" v-model:value="params[item.name]" :placeholder="item.name" />
+                    <a-input v-if="item.type == 'input'" style="width: 400px; margin-top: 10px; margin-right: 10px" v-model:value="params[item.id]" :placeholder="item.name" />
                     <a-tooltip :title="item.tip" color="#66bb6a">
                       <QuestionCircleOutlined />
                     </a-tooltip>
