@@ -78,6 +78,13 @@ const params = ref({
   notify_by_email: undefined,
   rpt_by_email: undefined,
 })
+
+// rna standess选项
+const rna_standess_option = ref([{
+          value: 'Unstranded',
+          label: 'Unstranded',
+        }])
+
 const childOptions = ref([])
 
 const fileList = ref([]);
@@ -147,7 +154,6 @@ const confirm = () => {
   console.log('pred_err',params.value.pred_err)
   console.log('notify_by_email',params.value.notify_by_email)
   console.log('rpt_by_email',params.value.rpt_by_email)
-  return 
   post("/yl/ylOrder/add", {
     inputDataType: selected1._rawValue,
     survivalType: selected2._rawValue,
@@ -254,13 +260,44 @@ const showConfirm = () => {
     });
   };
 
+  // 修改选项
+const handleChange1 = (val) => {
+  if(val == 'Single end'){
+    rna_standess_option.value = [
+      {
+          value: 'F',
+          label: 'F',
+        },{
+          value: 'R',
+          label: 'R',
+        },{
+          value: 'Unstranded',
+          label: 'Unstranded',
+        }
+    ]
+  } else {
+    rna_standess_option.value = [
+      {
+          value: 'FR',
+          label: 'FR',
+        },{
+          value: 'RF',
+          label: 'RF',
+        },{
+          value: 'Unstranded',
+          label: 'Unstranded',
+        }
+    ]
+  }
+}
+
 const handleChange = (val) => {
   if(val == 'GeneExpr'){
     isNeedUplaodclinical.value = false
     isNeedUplaodGen.value = true
     childOptions.value = [
       {
-        name: 'surv_type',
+        name: 'Surv Type',
         options: [{
           value: 'Recurrence',
           label: 'Recurrence',
@@ -274,7 +311,7 @@ const handleChange = (val) => {
           Death: Counting from diagnosis date, the time of overall survival (OS)`
       },
       {
-        name: 'pred_err',
+        name: 'Prediction Error',
         options: [{
           value: 'Yes',
           label: 'Yes',
@@ -286,7 +323,7 @@ const handleChange = (val) => {
         tip: `If you choose to estimate prediction error, you must upload clinical phenotype data.`
       },
       {
-        name: 'notify_by_email',
+        name: 'Notify By Email',
         options: [{
           value: 'Yes',
           label: 'Yes',
@@ -299,7 +336,7 @@ const handleChange = (val) => {
 missing genes etc. will be sent to your email address.`
       },
       {
-        name: 'rpt_by_email',
+        name: 'Rpt By Email',
         options: [{
           value: 'Yes',
           label: 'Yes',
@@ -317,7 +354,7 @@ compressed file.`
     isNeedUplaodGen.value = true
     childOptions.value = [
       {
-        name: 'data_paired',
+        name: 'Data Paired',
         options: [{
           value: 'Paired end',
           label: 'Paired end',
@@ -325,55 +362,12 @@ compressed file.`
           value: 'Single end',
           label: 'Single end',
         }],
-        type: 'select',
+        type: 'select1',
         tip: `Please specify your RNA-seq data as paired-end or single-end.`
       },
       {
-        name: 'data_suffix',
-        options: [],
-        type: 'input',
-        tip: `In the RNA-seq file name, the part that indicates strand direction. For example, for pairedend RNA-seq data for Sample:
-          Sample_R1.fastq
-          Sample_R2.fastq
-          please enter [‘_R1’ ‘_R2’]
-          if it is single-end RNA-seq data, and there is nothing between sample name and file
-          extension, please leave it empty.`
-      },
-      {
-        name: 'data_suffix_two',
-        options: [],
-        type: 'input',
-        tip: `In the RNA-seq file name, the part that indicates strand direction. For example, for pairedend RNA-seq data for Sample:
-          Sample_R1.fastq
-          Sample_R2.fastq
-          please enter [‘_R1’ ‘_R2’]
-          if it is single-end RNA-seq data, and there is nothing between sample name and file
-          extension, please leave it empty.`
-      },
-      {
-        name: 'data_ext',
-        options: [],
-        type: 'input',
-        tip: `The extension of RNA-seq file name. For example, for paired-end RNA-seq data for Sample:
-          Sample_R1.fastq
-          Sample_R2.fastq
-          please enter ‘.fastq’`
-      },
-      {
-        name: 'rna_strandness',
-        options: [{
-          value: 'F',
-          label: 'F',
-        },{
-          value: 'R',
-          label: 'R',
-        },{
-          value: 'FR',
-          label: 'FR',
-        },{
-          value: 'Unstranded',
-          label: 'Unstranded',
-        }],
+        name: 'Rna Strandness',
+        options: rna_standess_option,
         type: 'select',
         tip: `(Please provide the strandness of the RNA-seq data.
         “F” stands for forward strand-specific sequencing, i.e., the sequenced RNA molecules are
@@ -385,21 +379,7 @@ compressed file.`
         Default is “Unstranded”)`
       },
       {
-        name: 'adapter',
-        options: [{
-          value: '[AutoDetect]',
-          label: '[AutoDetect]',
-        },{
-          value: '[‘xxxxx’ ‘xxxxx’]',
-          label: '[‘xxxxx’ ‘xxxxx’]',
-        }],
-        type: 'select',
-        tip: `The short DNA sequence that is ligated to target molecules during library preparation.
-          For single-end RNA-seq data: one sequence.
-          For paired-end RNA-seq data: two sequences for both ends.`
-      },
-      {
-        name: 'merge',
+        name: 'Merge',
         options: [{
           value: 'Yes',
           label: 'Yes',
@@ -413,7 +393,7 @@ compressed file.`
         Default value is ‘No’`
       },
       {
-        name: 'surv_type',
+        name: 'Surv Type',
         options: [{
           value: 'Recurrence',
           label: 'Recurrence',
@@ -427,7 +407,7 @@ compressed file.`
           Death: Counting from diagnosis date, the time of overall survival (OS)`
       },
       {
-        name: 'pred_err',
+        name: 'Pred Error',
         options: [{
           value: 'Yes',
           label: 'Yes',
@@ -439,7 +419,37 @@ compressed file.`
         tip: `If you choose to estimate prediction error, you must upload clinical phenotype data.`
       },
       {
-        name: 'notify_by_email',
+        name: 'Adapter',
+        options: [],
+        type: 'input',
+        tip: `The short DNA sequence that is ligated to target molecules during library preparation.
+        The default value is ‘AutoDetect‘.
+          For single-end RNA-seq data: one sequence.
+          For paired-end RNA-seq data: two sequences for both ends.
+          please Use ‘|‘ as a split match like [‘xxxx|xxxx’].`
+      },
+      {
+        name: 'Data Suffix',
+        options: [],
+        type: 'input',
+        tip: `In the RNA-seq file name, the part that indicates strand direction. For example, for pairedend RNA-seq data for Sample:
+          Sample_R1.fastq
+          Sample_R2.fastq
+          please Use ‘|‘ as a split match like [‘_R1|_R2’]
+          if it is single-end RNA-seq data, and there is nothing between sample name and file
+          extension, please leave it empty.`
+      },
+      {
+        name: 'data Ext',
+        options: [],
+        type: 'input',
+        tip: `The extension of RNA-seq file name. For example, for paired-end RNA-seq data for Sample:
+          Sample_R1.fastq
+          Sample_R2.fastq
+          please enter ‘.fastq’`
+      },
+      {
+        name: 'Notify By Email',
         options: [{
           value: 'Yes',
           label: 'Yes',
@@ -452,7 +462,7 @@ compressed file.`
 missing genes etc. will be sent to your email address.`
       },
       {
-        name: 'rpt_by_email',
+        name: 'Rpt By Email',
         options: [{
           value: 'Yes',
           label: 'Yes',
@@ -546,7 +556,7 @@ onMounted(() => {
                   <Icon type="question-circle" />
                 </div> -->
                 <div style="width: 50%">
-                  <label class="my_label">data_type：</label>
+                  <label class="my_label">Data Type：</label>
                   <Select
                     placeholder="Please Select Input data type"
                     style="width: 400px; margin-top: 10px; margin-right: 10px"
@@ -580,7 +590,22 @@ onMounted(() => {
                         ></i>
                       </template>
                     </Select>
-                    <a-input v-else style="width: 400px; margin-top: 10px; margin-right: 10px" v-model:value="params[item.name]" :placeholder="item.name" />
+                    <Select
+                      v-if="item.type == 'select1'"
+                      :placeholder="item.name"
+                      style="width: 400px; margin-top: 10px; margin-right: 10px"
+                      v-model:value="params[item.name]"
+                      @change="handleChange1"
+                      :options="item.options"
+                    >
+                      <template #suffix>
+                        <i
+                          class="ant-select-arrow ant-select-arrow-icon"
+                          style="color: #ccc"
+                        ></i>
+                      </template>
+                    </Select>
+                    <a-input v-if="item.type == 'input'" style="width: 400px; margin-top: 10px; margin-right: 10px" v-model:value="params[item.name]" :placeholder="item.name" />
                     <a-tooltip :title="item.tip" color="#66bb6a">
                       <QuestionCircleOutlined />
                     </a-tooltip>
