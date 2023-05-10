@@ -110,7 +110,7 @@ const customRequest = (e) => {
 };
 
 const handleFileChange = (event) => {
-  const files = event.fileListProgres;
+  const files = event.fileList;
   fileListProgres.value = Array.from(files).map((file) => ({
     name: file.name,
     size: file.size,
@@ -122,7 +122,7 @@ const handleFileChange = (event) => {
 
 // 第二个上传文件选择文件
 const handleFileChange2 = (event) => {
-  const files = event.fileListProgres2;
+  const files = event.fileList;
   fileListProgres2.value = Array.from(files).map((file) => ({
     name: file.name,
     size: file.size,
@@ -133,13 +133,7 @@ const handleFileChange2 = (event) => {
 };
 
 const confirm = () => {
-  // console.log(fileListProgres._rawValue, selected1._rawValue);
-  // if (!selected1._rawValue)
-  //   return message.warning("Please Select Input data type!");
-  // if (!selected2._rawValue)
-  //   return message.warning("Please Select Survival type!");
-  // if (fileListProgres._rawValue.length == 0)
-  //   return message.warning("Please select at least one file");
+
 
   console.log('selected1',selected1.value)
   console.log('selected2',selected2.value)
@@ -154,6 +148,14 @@ const confirm = () => {
   console.log('pred_err',params.value.pred_err)
   console.log('notify_by_email',params.value.notify_by_email)
   console.log('rpt_by_email',params.value.rpt_by_email)
+  console.log(fileListProgres._rawValue, selected1._rawValue);
+  // if (!selected1._rawValue)
+  //   return message.warning("Please Select Input data type!");
+  // if (!selected2._rawValue)
+  //   return message.warning("Please Select Survival type!");
+  // if (fileListProgres._rawValue.length == 0)
+  //   return message.warning("Please select at least one file");
+
   post("/yl/ylOrder/add", {
     inputDataType: selected1._rawValue,
     survivalType: selected2._rawValue,
