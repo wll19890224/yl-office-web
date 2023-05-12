@@ -153,7 +153,7 @@ const confirm = () => {
   //   return message.warning("Please Select Survival type!");
   // if (fileListProgres._rawValue.length == 0)
   //   return message.warning("Please select at least one file");
-  var jsonData = {}; // 上传的json
+  let jsonData = {}; // 上传的json
   if(data_type.value == undefined) {
     return message.warning("Please Select data type!");
   } else if(data_type.value == "GeneExpr") {
@@ -185,7 +185,55 @@ const confirm = () => {
           rptByEmail: params.value.rpt_by_email,
        }
   } else { // RNA 数据上传
+      if(params.value.data_paired == undefined) {
+        return message.warning("Please Select data paired!");
+      }
 
+      if(params.value.rna_strandness == undefined) {
+        return message.warning("Please Select rna strandness!");
+      }
+
+      if(params.value.merge == undefined) {
+        return message.warning("Please Select Merge!");
+      }
+
+      if(params.value.surv_type == undefined) {
+        return message.warning("Please Select Surv type!");
+      }
+
+      if(params.value.pred_err == undefined) {
+        return message.warning("Please Select Prediction Error!");
+      }
+
+      if(params.value.notify_by_email == undefined) {
+        return message.warning("Please Select Notify By Email!");
+      }
+
+      if(params.value.rpt_by_email == undefined) {
+        return message.warning("Please Select Rpt By Email!");
+      }
+
+      if (fileListProgres._rawValue.length == 0) {
+        return message.warning("Please select at least one gene expr file");
+      }
+
+      if (fileListProgres2._rawValue.length == 0) {
+        return message.warning("Please select at least one clinical phenotype file");
+      }
+
+      jsonData = {
+          dataType : data_type.value,
+          dataPaired: params.value.data_paired,
+          rnaStrandness: params.value.rna_strandness,
+          orderMerge: params.value.merge,
+          orderAdapter: params.value.adapter,
+          dataSuffix: params.value.data_suffix,
+          dataExt: params.value.data_ext,
+          survType : params.value.surv_type,
+          predErr : params.value.pred_err,
+          notifyByEmail: params.value.notify_by_email,
+          rptByEmail: params.value.rpt_by_email,
+       }
   }
 
   post("/yl/ylOrder/add", jsonData).then((response) => {
@@ -197,51 +245,94 @@ const confirm = () => {
       let uploaded = 0;
       fileListProgres._rawValue.forEach((file) => {
         console.log(file);
-        get("/yl/ylOrder/getAwsSignBucketUrl", {
-          id: resultId.value,
-          fileName: file.name,
-          contentType: file.raw.type,
-        }).then((res) => {
-          console.log(res);
-          if (res.code == 200) {
-            let formData = new FormData();
-            formData.append(`file`, file.raw);
-            // let contentType = file.originFileObj.type;
-            uploadApi(res.result, file.raw.originFileObj, ({ event }) => {
-              console.log(event, file);
-              if (event.lengthComputable) {
-                file.percent = Math.round((event.loaded / event.total) * 100);
-                console.log("2222", file);
+          get("/yl/ylOrder/getAwsSignBucketUrl", {
+              id: resultId.value,
+              fileName: file.name,
+              contentType: file.raw.type,
+            }).then((res) => {
+              console.log(res);
+              if (res.code == 200) {
+                let formData = new FormData();
+                formData.append(`file`, file.raw);
+                // let contentType = file.originFileObj.type;
+                uploadApi(res.result, file.raw.originFileObj, ({ event }) => {
+                  console.log(event, file);
+                  if (event.lengthComputable) {
+                    file.percent = Math.round((event.loaded / event.total) * 100);
+                    console.log("2222", file);
+                  }
+                }).then((uploadRes) => {
+                  // if (uploadRes.status == 200) {
+                    uploaded++;
+                    console.log("loading", upLoading);
+                    if (uploaded === total) {
+                      if(data_type.value == "GeneExpr") {
+                        upLoading.value = false;
+                        console.log(upLoading);
+                        isClick.value = true;
+                        showConfirm()
+                      } else {
+                        // 上传 RNA 数据
+                        const total2 = fileListProgres2.value.length;
+                        let uploaded2 = 0;
+                        fileListProgres2._rawValue.forEach((file) => {
+                        console.log(file);
+                        get("/yl/ylOrder/getAwsClinSignBucketUrl", {
+                            id: resultId.value,
+                            fileName: file.name,
+                            contentType: file.raw.type,
+                          }).then((res) => {
+                            console.log(res);
+                            if (res.code == 200) {
+                              let formData = new FormData();
+                              formData.append(`file`, file.raw);
+                              // let contentType = file.originFileObj.type;
+                              uploadApi(res.result, file.raw.originFileObj, ({ event }) => {
+                                console.log(event, file);
+                                if (event.lengthComputable) {
+                                  file.percent = Math.round((event.loaded / event.total) * 100);
+                                  console.log("rna", file);
+                                }
+                              }).then((uploadRes) => {
+                                  uploaded2++;
+                                  console.log("loading", upLoading);
+                                  if (uploaded2 === total2) {
+                                    upLoading.value = false;
+                                    console.log(upLoading);
+                                    isClick.value = true;
+                                    showConfirm()
+                                  }
+                              }).catch(
+                                  function (error) {
+                                    console.log('Show error notification!')
+                                    upLoading.value = false;
+                                      console.log("fail=" + error);
+                                    message.warning("Upload fail :" + error);
+                                    return Promise.reject(error)
+                                  }
+                              );
+                            }else{
+                              isClick.value = true;
+                              upLoading.value = false;
+                            }
+                          });
+                        });
+                      }
+                    }
+                }).catch(
+                    function (error) {
+                      console.log('Show error notification!')
+                      upLoading.value = false;
+                        console.log("fail=" + error);
+                      message.warning("Upload fail :" + error);
+                      return Promise.reject(error)
+                    }
+                );
+              }else{
+                isClick.value = true;
+                upLoading.value = false;
               }
-            }).then((uploadRes) => {
-              // if (uploadRes.status == 200) {
-                uploaded++;
-                console.log("loading", upLoading);
-                if (uploaded === total) {
-                  upLoading.value = false;
-                  console.log(upLoading);
-                  isClick.value = true;
-                  showConfirm()
-                }
-              // } else {
-                // upLoading.value = false;
-                // console.log("fail=" + uploadRes.status);
-                // message.warning("Upload fail :" + uploadRes.message);
-              // }
-            }).catch(
-                function (error) {
-                  console.log('Show error notification!')
-                   upLoading.value = false;
-                    console.log("fail=" + error);
-                   message.warning("Upload fail :" + error);
-                  return Promise.reject(error)
-                }
-            );
-          }else{
-            isClick.value = true;
-            upLoading.value = false;
-          }
-        });
+            });
       });
     }
   }).catch(
@@ -291,12 +382,12 @@ const uploadFilesAction = () => {
 
 const showConfirm = () => {
     Modal.confirm({
-      title: () => '上传已经完成，是否⽴即开始计算？',
+      title: () => 'The upload has been completed, do you want to start the calculation now?',
       icon: () => createVNode(ExclamationCircleOutlined),
       content: () => '',
-      okText: () => '确定',
+      okText: () => 'Yes',
       okType: 'success',
-      cancelText: () => '取消',
+      cancelText: () => 'No',
       onOk() {
         console.log('OK');
         startCount()
