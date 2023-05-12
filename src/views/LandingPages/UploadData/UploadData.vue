@@ -244,7 +244,15 @@ const confirm = () => {
         });
       });
     }
-  });
+  }).catch(
+      function (error) {
+        console.log('Show error notification!')
+          upLoading.value = false;
+          console.log("fail=" + error);
+          message.warning("error :" + error);
+        return Promise.reject(error)
+      }
+  );
 };
 
 const startCount = () => {
