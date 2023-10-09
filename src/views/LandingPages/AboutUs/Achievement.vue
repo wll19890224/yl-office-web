@@ -56,14 +56,14 @@ onUnmounted(() => {
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center mx-auto my-auto">
             <h1>
-              Our mission
+              Our Achievements
             </h1>
             <!-- <p class="lead mb-3 text-white opacity-8"> -->
               <!-- <p class="text-white"> -->
                 <h4>
-                We are committed to advancing precision medicine to make society healthier. Our dedication to this mission is reflected in the development of cutting-edge AI tools, which harness the potential of big data generated from modern biotechnology. These tools empower medical practitioners to make well-informed decisions, ultimately leading to better patient care.
-              <!-- </p> -->
-            </h4>
+                Our solutions for breast cancer prognosis prediction and RNA-seq data preprocessing are now available online, providing accessible and valuable tools for the medical community.
+                </h4>
+                <!-- </p> -->
           </div>
         </div>
       </div>

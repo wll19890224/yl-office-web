@@ -223,6 +223,30 @@ watch(
                         <span>Our mission</span>
                       </RouterLink>
                       <RouterLink
+                        :to="{ name: 'vision' }"
+                        class="dropdown-item border-radius-md"
+                      >
+                        <span>Our vision</span>
+                      </RouterLink>
+                      <RouterLink
+                        :to="{ name: 'choose-us' }"
+                        class="dropdown-item border-radius-md"
+                      >
+                        <span>Why choose BioSpringbok ApS? </span>
+                      </RouterLink>
+                      <RouterLink
+                        :to="{ name: 'achievement' }"
+                        class="dropdown-item border-radius-md"
+                      >
+                        <span>Our achievement</span>
+                      </RouterLink>
+                      <RouterLink
+                        :to="{ name: 'journey' }"
+                        class="dropdown-item border-radius-md"
+                      >
+                        <span>Join us on our journey</span>
+                      </RouterLink>
+                      <RouterLink
                         :to="{ name: 'contactus' }"
                         class="dropdown-item border-radius-md"
                       >
@@ -339,7 +363,7 @@ watch(
                 :class="getTextColor()"
                 >article</i
               >
-              Language
+              Languages
               <img
                 :src="getArrowColor()"
                 alt="down-arrow"

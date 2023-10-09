@@ -29,12 +29,12 @@ export default defineConfig({
   server: {
     proxy: {
       '/jeecg-boot': {
-        // target: 'https://yapi.chrpay.cn/jeecg-boot',
-        target: "http://192.168.2.238:8081/jeecg-boot/",
+        target: 'https://ylp.chrpay.cn/jeecg-boot/',
+        // target: "http://192.168.2.238:8081/jeecg-boot/",
         changeOrigin: true,
       },
       '/baseUrl': {
-        target: 'https://finsen-client-data.s3.eu-central-1.amazonaws.com',
+        target: 'https://biospringbok-client.s3.eu-central-1.amazonaws.com',
         changeOrigin: true,
       }
     }

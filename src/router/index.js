@@ -2,6 +2,10 @@ import { getToken } from '@/utils/auth'
 import { createRouter, createWebHistory } from "vue-router";
 import PresentationView from "../views/Presentation/PresentationView.vue";
 import AboutView from "../views/LandingPages/AboutUs/AboutView.vue";
+import VisionView from "../views/LandingPages/AboutUs/Vision.vue";
+import ChooseView from "../views/LandingPages/AboutUs/ChooseUs.vue";
+import JourneyView from "../views/LandingPages/AboutUs/Journey.vue";
+import Achievement from "../views/LandingPages/AboutUs/Achievement.vue";
 import ContactView from "../views/LandingPages/ContactUs/ContactView.vue";
 import AuthorView from "../views/LandingPages/Author/AuthorView.vue";
 import SignInBasicView from "../views/LandingPages/SignIn/BasicView.vue";
@@ -41,6 +45,26 @@ const router = createRouter({
       path: "/pages/landing-pages/about-us",
       name: "about",
       component: AboutView,
+    },
+    {
+      path: "/pages/landing-pages/our-vision",
+      name: "vision",
+      component: VisionView,
+    },
+    {
+      path: "/pages/landing-pages/choose-us",
+      name: "choose-us",
+      component: ChooseView,
+    },
+    {
+      path: "/pages/landing-pages/achievement",
+      name: "achievement",
+      component: Achievement,
+    },
+    {
+      path: "/pages/landing-pages/journey",
+      name: "journey",
+      component: JourneyView,
     },
     {
       path: "/pages/landing-pages/upload-data",

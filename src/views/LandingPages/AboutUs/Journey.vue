@@ -55,15 +55,15 @@ onUnmounted(() => {
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center mx-auto my-auto">
-            <h1>
-              Our mission
-            </h1>
             <!-- <p class="lead mb-3 text-white opacity-8"> -->
               <!-- <p class="text-white"> -->
+                <h1>
+                  Join Us on Our Journey
+                </h1>
                 <h4>
-                We are committed to advancing precision medicine to make society healthier. Our dedication to this mission is reflected in the development of cutting-edge AI tools, which harness the potential of big data generated from modern biotechnology. These tools empower medical practitioners to make well-informed decisions, ultimately leading to better patient care.
+                We invite you to be a part of our journey as we strive to shape the future of healthcare. Whether you are a medical professional, researcher, or potential partner, we look forward to collaborating with you to make healthcare more precise, accessible, and effective.
+                </h4>
               <!-- </p> -->
-            </h4>
           </div>
         </div>
       </div>

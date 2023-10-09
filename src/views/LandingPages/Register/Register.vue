@@ -10,7 +10,7 @@ import Header from "@/examples/Header.vue";
 //Vue Material Kit 2 components
 import MaterialInput from "@/components/MaterialInput.vue";
 import MaterialSelect from "@/components/MaterialSelect.vue";
-import MaterialSwitch from "@/components/MaterialSwitch.vue";
+// import MaterialSwitch from "@/components/MaterialSwitch.vue";
 import MaterialButton from "@/components/MaterialButton.vue";
 import { Select, message, Spin, Modal } from "ant-design-vue";
 

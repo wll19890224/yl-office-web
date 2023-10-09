@@ -54,15 +54,13 @@ onUnmounted(() => {
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
         <div class="row justify-content-center">
+
           <div class="col-lg-8 text-center mx-auto my-auto">
-            <h1>
-              Our mission
+             <h1>
+              Our vision
             </h1>
-            <!-- <p class="lead mb-3 text-white opacity-8"> -->
-              <!-- <p class="text-white"> -->
-                <h4>
-                We are committed to advancing precision medicine to make society healthier. Our dedication to this mission is reflected in the development of cutting-edge AI tools, which harness the potential of big data generated from modern biotechnology. These tools empower medical practitioners to make well-informed decisions, ultimately leading to better patient care.
-              <!-- </p> -->
+            <h4>
+                Our vision is to enable patients worldwide to receive the most effective treatment. We achieve this by providing superior prediction precision, accessibility, and affordability through our AI-powered solutions.
             </h4>
           </div>
         </div>

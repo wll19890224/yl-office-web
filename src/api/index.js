@@ -4,8 +4,8 @@ import router from '@/router'
 import { message } from "ant-design-vue";
 
 // axios 全局配置
-// axios.defaults.baseURL = 'https://yapi.chrpay.cn/jeecg-boot'
-axios.defaults.baseURL = 'http://192.168.2.238:8081/jeecg-boot/'
+axios.defaults.baseURL = 'https://api.biospringbok.com/jeecg-boot'
+// axios.defaults.baseURL = 'http://192.168.2.238:8081/jeecg-boot/'
 axios.defaults.timeout = 10000
 
 // 请求拦截器

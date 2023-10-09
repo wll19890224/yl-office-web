@@ -59,11 +59,13 @@ onUnmounted(() => {
         <div class="row">
           <div class="col-lg-7 text-center mx-auto position-relative">
             <h1
-              class="text-white pt-3 mt-n5 me-2"
-              :style="{ display: 'inline-block ' }"
+              :style="{ display: 'inline-block ', fontSize: '100' }"
             >
-            BioSpringbok GenomicMed ApS
+            BioSpringbok ApS
             </h1>
+            <h3>
+              Pioneering Precision Medicine with AI Excellence
+            </h3>
             <!-- <p class="lead text-white px-5 mt-3" :style="{ fontWeight: '500' }">
               Start the Development With Bootstrap 5 Design System inspired by
               Material Design.

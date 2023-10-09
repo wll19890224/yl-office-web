@@ -133,26 +133,21 @@ const handleFileChange2 = (event) => {
 };
 
 const confirm = () => {
-  console.log('selected1',selected1.value)
-  console.log('selected2',selected2.value)
-  console.log('data_type',data_type.value)
-  console.log('data_paired',params.value.data_paired)
-  console.log('data_suffix',params.value.data_suffix)
-  console.log('data_ext',params.value.data_ext)
-  console.log('rna_strandness',params.value.rna_strandness)
-  console.log('adapter',params.value.adapter)
-  console.log('merge',params.value.merge)
-  console.log('surv_type',params.value.surv_type)
-  console.log('pred_err',params.value.pred_err)
-  console.log('notify_by_email',params.value.notify_by_email)
-  console.log('rpt_by_email',params.value.rpt_by_email)
-  console.log(fileListProgres._rawValue, selected1._rawValue);
-  // if (!selected1._rawValue)
-  //   return message.warning("Please Select Input data type!");
-  // if (!selected2._rawValue)
-  //   return message.warning("Please Select Survival type!");
-  // if (fileListProgres._rawValue.length == 0)
-  //   return message.warning("Please select at least one file");
+  // console.log('selected1',selected1.value)
+  // console.log('selected2',selected2.value)
+  // console.log('data_type',data_type.value)
+  // console.log('data_paired',params.value.data_paired)
+  // console.log('data_suffix',params.value.data_suffix)
+  // console.log('data_ext',params.value.data_ext)
+  // console.log('rna_strandness',params.value.rna_strandness)
+  // console.log('adapter',params.value.adapter)
+  // console.log('merge',params.value.merge)
+  // console.log('surv_type',params.value.surv_type)
+  // console.log('pred_err',params.value.pred_err)
+  // console.log('notify_by_email',params.value.notify_by_email)
+  // console.log('rpt_by_email',params.value.rpt_by_email)
+  // console.log(fileListProgres._rawValue, selected1._rawValue);
+
   let jsonData = {}; // 上传的json
   if(data_type.value == undefined) {
     return message.warning("Please Select data type!");

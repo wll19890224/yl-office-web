@@ -48,9 +48,7 @@ onMounted(() => {
               </div>
               <div class="card-body">
                 <p class="pb-3">
-                  We would appreciate any suggestions, comment, or 
-                  feedback. For any contribution to improving our product, 
-                  we will grant free quota for future use.
+                  We welcome your inquiries, feedback, and collaboration opportunities. Please feel free to reach out to us through the following contact methods:
                 </p>
                 <p class="pb-3">
                   Phone: +45 5038 7189
@@ -59,7 +57,7 @@ onMounted(() => {
                   Email: hello@biospringbok.com
                 </p>
                 <p class="pb-3">
-                  Address: Finsensvej 15, Frederiksberg, Denmark
+                  Address: Frederiksberg, Denmark
                 </p>
               </div>
             </div>

@@ -56,14 +56,16 @@ onUnmounted(() => {
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center mx-auto my-auto">
             <h1>
-              Our mission
+              Why choose BioSpringbok ApS?
             </h1>
             <!-- <p class="lead mb-3 text-white opacity-8"> -->
               <!-- <p class="text-white"> -->
-                <h4>
-                We are committed to advancing precision medicine to make society healthier. Our dedication to this mission is reflected in the development of cutting-edge AI tools, which harness the potential of big data generated from modern biotechnology. These tools empower medical practitioners to make well-informed decisions, ultimately leading to better patient care.
+                <h4 class="mb-3 opacity-8">
+Pioneering innovation: We are at the forefront of AI-driven healthcare solutions, constantly pushing the boundaries of what's possible in precision medicine.
+Global Reach: Our user-friendly platform ensures that medical professionals worldwide can access and benefit from our tools.
+Collaboration: We actively seek partnerships and collaborations with industry leaders, researchers, and organizations to drive innovation in healthcare.
               <!-- </p> -->
-            </h4>
+              </h4>
           </div>
         </div>
       </div>
