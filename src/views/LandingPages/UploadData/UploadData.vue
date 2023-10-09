@@ -161,13 +161,13 @@ const confirm = () => {
         return message.warning("Please Select Prediction Error!");
       }
 
-      if(params.value.notify_by_email == undefined) {
-        return message.warning("Please Select Notify By Email!");
-      }
+      // if(params.value.notify_by_email == undefined) {
+      //   return message.warning("Please Select Notify By Email!");
+      // }
 
-      if(params.value.rpt_by_email == undefined) {
-        return message.warning("Please Select Rpt By Email!");
-      }
+      // if(params.value.rpt_by_email == undefined) {
+      //   return message.warning("Please Select Rpt By Email!");
+      // }
 
        if (fileListProgres._rawValue.length == 0) {
         return message.warning("Please select at least one gene expr file");
@@ -176,8 +176,8 @@ const confirm = () => {
           dataType : data_type.value,
           survType : params.value.surv_type,
           predErr : params.value.pred_err,
-          notifyByEmail: params.value.notify_by_email,
-          rptByEmail: params.value.rpt_by_email,
+          notifyByEmail: "Yes",
+          rptByEmail: "Yes",
        }
   } else { // RNA 数据上传
       if(params.value.data_paired == undefined) {
@@ -200,13 +200,13 @@ const confirm = () => {
         return message.warning("Please Select Prediction Error!");
       }
 
-      if(params.value.notify_by_email == undefined) {
-        return message.warning("Please Select Notify By Email!");
-      }
+      // if(params.value.notify_by_email == undefined) {
+      //   return message.warning("Please Select Notify By Email!");
+      // }
 
-      if(params.value.rpt_by_email == undefined) {
-        return message.warning("Please Select Rpt By Email!");
-      }
+      // if(params.value.rpt_by_email == undefined) {
+      //   return message.warning("Please Select Rpt By Email!");
+      // }
 
       if (fileListProgres._rawValue.length == 0) {
         return message.warning("Please select at least one gene expr file");
@@ -215,7 +215,6 @@ const confirm = () => {
       if (fileListProgres2._rawValue.length == 0) {
         return message.warning("Please select at least one clinical phenotype file");
       }
-
       jsonData = {
           dataType : data_type.value,
           dataPaired: params.value.data_paired,
@@ -226,9 +225,23 @@ const confirm = () => {
           dataExt: params.value.data_ext,
           survType : params.value.surv_type,
           predErr : params.value.pred_err,
-          notifyByEmail: params.value.notify_by_email,
-          rptByEmail: params.value.rpt_by_email,
+          notifyByEmail: "Yes",
+          rptByEmail: "Yes",
        }
+
+      // jsonData = {
+      //     dataType : data_type.value,
+      //     dataPaired: params.value.data_paired,
+      //     rnaStrandness: params.value.rna_strandness,
+      //     orderMerge: params.value.merge,
+      //     orderAdapter: params.value.adapter,
+      //     dataSuffix: params.value.data_suffix,
+      //     dataExt: params.value.data_ext,
+      //     survType : params.value.surv_type,
+      //     predErr : params.value.pred_err,
+      //     notifyByEmail: params.value.notify_by_email,
+      //     rptByEmail: params.value.rpt_by_email,
+      //  }
   }
 
   post("/yl/ylOrder/add", jsonData).then((response) => {
@@ -458,34 +471,34 @@ const handleChange = (val) => {
         type: 'select',
         tip: `If you choose to estimate prediction error, you must upload clinical phenotype data.`
       },
-      {
-        id: 'notify_by_email',
-        name: 'Notify By Email',
-        options: [{
-          value: 'Yes',
-          label: 'Yes',
-        },{
-          value: 'No',
-          label: 'No',
-        }],
-        type: 'select',
-        tip: `If you choose to receive notifications by email, expected computation completion time, any
-missing genes etc. will be sent to your email address.`
-      },
-      {
-        id: 'rpt_by_email',
-        name: 'Rpt By Email',
-        options: [{
-          value: 'Yes',
-          label: 'Yes',
-        },{
-          value: 'No',
-          label: 'No',
-        }],
-        type: 'select',
-        tip: `If you choose to receive report by email, full results will be sent to your email address as a
-compressed file.`
-      }
+//       {
+//         id: 'notify_by_email',
+//         name: 'Notify By Email',
+//         options: [{
+//           value: 'Yes',
+//           label: 'Yes',
+//         },{
+//           value: 'No',
+//           label: 'No',
+//         }],
+//         type: 'select',
+//         tip: `If you choose to receive notifications by email, expected computation completion time, any
+// missing genes etc. will be sent to your email address.`
+//       },
+//       {
+//         id: 'rpt_by_email',
+//         name: 'Rpt By Email',
+//         options: [{
+//           value: 'Yes',
+//           label: 'Yes',
+//         },{
+//           value: 'No',
+//           label: 'No',
+//         }],
+//         type: 'select',
+//         tip: `If you choose to receive report by email, full results will be sent to your email address as a
+// compressed file.`
+//       }
     ]
   }else if(val == 'RNAseq'){
     isNeedUplaodclinical.value = true
@@ -594,34 +607,34 @@ compressed file.`
           Sample_R2.fastq
           please enter ‘.fastq’`
       },
-      {
-        id: 'notify_by_email',
-        name: 'Notify By Email',
-        options: [{
-          value: 'Yes',
-          label: 'Yes',
-        },{
-          value: 'No',
-          label: 'No',
-        }],
-        type: 'select',
-        tip: `If you choose to receive notifications by email, expected computation completion time, any
-missing genes etc. will be sent to your email address.`
-      },
-      {
-        id: 'rpt_by_email',
-        name: 'Rpt By Email',
-        options: [{
-          value: 'Yes',
-          label: 'Yes',
-        },{
-          value: 'No',
-          label: 'No',
-        }],
-        type: 'select',
-        tip: `If you choose to receive report by email, full results will be sent to your email address as a
-compressed file.`
-      }
+//       {
+//         id: 'notify_by_email',
+//         name: 'Notify By Email',
+//         options: [{
+//           value: 'Yes',
+//           label: 'Yes',
+//         },{
+//           value: 'No',
+//           label: 'No',
+//         }],
+//         type: 'select',
+//         tip: `If you choose to receive notifications by email, expected computation completion time, any
+// missing genes etc. will be sent to your email address.`
+//       },
+//       {
+//         id: 'rpt_by_email',
+//         name: 'Rpt By Email',
+//         options: [{
+//           value: 'Yes',
+//           label: 'Yes',
+//         },{
+//           value: 'No',
+//           label: 'No',
+//         }],
+//         type: 'select',
+//         tip: `If you choose to receive report by email, full results will be sent to your email address as a
+// compressed file.`
+//       }
     ]
   }else{
     childOptions.value = []
@@ -771,7 +784,7 @@ onMounted(() => {
                     >
                       <a-button>
                         <upload-outlined></upload-outlined>
-                        Click to Select GeneExpr File
+                        Upload gene expression data, Upload survival data
                       </a-button>
                     </a-upload>
                     <div v-for="(file, index) in fileListProgres" :key="index">

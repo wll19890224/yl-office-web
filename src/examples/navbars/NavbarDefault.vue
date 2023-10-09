@@ -304,7 +304,7 @@ watch(
                 :class="getTextColor()"
                 >view_day</i
               >
-              Our products
+              Our solutions
               <img
                 :src="getArrowColor()"
                 alt="down-arrow"
@@ -455,17 +455,17 @@ watch(
                         :to="{ name: 'upload-data' }"
                         class="dropdown-item border-radius-md"
                       >
-                        <span>Upload data & compute and predict</span>
+                        <span>New run</span>
                       </RouterLink>
                       <RouterLink
                         :to="{ name: 'prediction-list' }"
                         class="dropdown-item border-radius-md"
                       >
-                        <span>My prediction list</span>
+                        <span>My runs</span>
                       </RouterLink>
 
                       <div class="dropdown-item border-radius-md"  @click.stop.prevent="logOut">
-                        <span>Log Out</span>
+                        <span>Log out</span>
                       </div>
                         
                     </div>

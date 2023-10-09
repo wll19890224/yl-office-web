@@ -36,34 +36,30 @@ onMounted(() => {
     >
       <span class="mask bg-gradient-dark opacity-6"></span>
       <div class="container">
+        <h3>
+            The solution is to predict breast cancer prognosis in terms of Recurrence Free Interval (RFI) and Overall Survival (OS) based on RNA-seq data. Precise prognosis prediction can help medical doctors make better informed treatment decisions.
+      </h3>
         <section class="py-9">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 my-auto text-white">
-          <h3>Our innovation</h3>
+          <h3>Key Features</h3>
           <p class="pe-5">
-            In 2020, breast cancer surpassed lung cancer as the most commonly 
-            diagnosed cancer on the world. Accurate prognosis is a critical step for 
-            medical doctors to design precision treatment well tailored for each patient.
-            Our method predict prognosis of breast cancer in terms of Recurrence Free 
-            Interval (RFI) and Overall Survival (OS) with very high precision based on 
-            patient’s molecular profile. It applies on all subtypes of breast cancer.
+            The solution provides more functions and proved to have much improved prediction precision compared to similar solutions on the market (MammaPrint, Oncotype DX).
           </p>
-          <a href="https://bayanebartar.org/file-dl/library/IELTS3/Essential-English.pdf" 
+          <!-- <a href="https://bayanebartar.org/file-dl/library/IELTS3/Essential-English.pdf" 
           target="_blank"
           class="text-success icon-move-right"
             >More
             <i class="fas fa-arrow-right text-sm ms-1"></i>
-          </a>
+          </a> -->
         </div>
         <div class="col-lg-6 my-auto text-white">
-          <h3>Prediction on my data</h3>
+          <h3>How It Works?</h3>
           <p class="pe-5">
-            The prediction is based on gene expression levels computed from bulk 
-            RNA-seq of primary tumor tissue of breast cancer patient. Our 
-            computation can start from
+            Please sign up an account, and log in your account. On your account name, choose "New run", then choose the solution. Fore detailed insturction, ReadMe (link to the ReadMe file in S3).
           </p>
-          <a>* Raw bulk RNA-seq data and output sequence data quality report, gene expression (FPKM) level table, and survival analysis report.</a>
+          <!-- <a>* Raw bulk RNA-seq data and output sequence data quality report, gene expression (FPKM) level table, and survival analysis report.</a>
           <br>
           <a>* Gene expression (FPKM) computed from bulk RNA-seq data.</a>
           <br>
@@ -74,7 +70,24 @@ onMounted(() => {
               >List
               <i class="fas fa-arrow-right text-sm ms-1"></i>
             </a>
-          </a>
+          </a> -->
+        </div>
+
+        <div class="col-lg-6 my-auto text-white">
+          <h3>Validation</h3>
+          <p class="pe-5">
+            The solution is validated on public data. We seek collaboration with medical institutes for further validataion and refinement.
+          </p>
+        </div>
+
+        <div class="col-lg-6 my-auto text-white">
+          <!-- <h3>Upload data and compute</h3> -->
+          <a
+              href="/pages/landing-pages/breastcancer-list"
+              class="text-success icon-move-right"
+              ><h3>Upload data and compute</h3>
+              <i class="fas fa-arrow-right text-lg ms-1"></i>
+            </a>
         </div>
       </div>
     </div>
