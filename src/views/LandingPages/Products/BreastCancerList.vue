@@ -49,39 +49,39 @@ onMounted(() => {
                 <div
                   class="bg-gradient-success shadow-success border-radius-lg p-3"
                 >
-                  <h3 class="text-white text-success mb-0">Input data gene lists</h3>
+                  <h3 class="text-white text-success mb-0">List of required genes:</h3>
                 </div>
               </div>
                   <div class="card-body">
                     <div class="col-lg-12 my-auto">
                     <div class="card-body">
-                      <a href="https://bayanebartar.org/file-dl/library/IELTS3/Essential-English.pdf" 
+                      <a href="https://www.biospringbok.com/GeneList_RFI.txt.zip"
                           target="_blank"
                           class="text-success icon-move-right"
-                        >* Gene expression (FPKM) 500 gene list
+                        >* For RFI
                         <i class="fas fa-arrow-right text-sm ms-1"></i>
                       </a>
                     <br>
-                    <a href="https://bayanebartar.org/file-dl/library/IELTS3/Essential-English.pdf" 
+                    <a href="https://www.biospringbok.com/GeneList_OS.txt.zip"
                           target="_blank"
                           class="text-success icon-move-right"
-                        >* Gene expression (FPKM) 1000 gene list
+                        >* For OS
                         <i class="fas fa-arrow-right text-sm ms-1"></i>
                       </a>
                     <br>
-                    <a href="https://bayanebartar.org/file-dl/library/IELTS3/Essential-English.pdf" 
+                    <a href="https://www.biospringbok.com/ReadMe.pdf.zip"
                           target="_blank"
                           class="text-success icon-move-right"
-                        >* Gene expression (FPKM) 1500 gene list
+                        >* ReadMe
                         <i class="fas fa-arrow-right text-sm ms-1"></i>
                       </a>
                     <br>
-                    <a href="https://bayanebartar.org/file-dl/library/IELTS3/Essential-English.pdf" 
+                    <!-- <a href="https://bayanebartar.org/file-dl/library/IELTS3/Essential-English.pdf" 
                           target="_blank"
                           class="text-success icon-move-right"
                         >* Gene expression (FPKM) 2000 gene list
                         <i class="fas fa-arrow-right text-sm ms-1"></i>
-                      </a>
+                      </a> -->
                   </div>
                  </div>
               </div>

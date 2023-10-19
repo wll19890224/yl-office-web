@@ -50,9 +50,10 @@ onUnmounted(() => {
     </div>
   </div>
   <Header>
+    <!--    :style="`background: rgb(220,255,38)`"   :style="`background-image: url(${vueMkHeader})`"   -->
     <div
       class="page-header min-vh-fill"
-      :style="`background-image: url(${vueMkHeader})`"
+      :style="`background: rgb(220,255,38)`"
       loading="lazy"
     >
       <div class="container">
@@ -76,7 +77,7 @@ onUnmounted(() => {
     </div>
   </Header>
 
-  <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
+  <!-- <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6"> -->
     <!-- <PresentationCounter /> -->
     <!-- <PresentationInformation /> -->
     <!-- <PresentationExample :data="data" />
@@ -84,7 +85,7 @@ onUnmounted(() => {
     <!-- <BuiltByDevelopers /> -->
 
     <!-- <div class="container"> -->
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-lg-4">
           <FilledInfoCard
             class="p-4"
@@ -131,7 +132,7 @@ we will grant free quota for future use."
             }"
           />
         </div>
-      </div>
+      </div> -->
     <!-- </div> -->
     <!-- <PresentationTestimonials /> -->
 
@@ -297,6 +298,6 @@ we will grant free quota for future use."
         </div>
       </div>
     </div> -->
-  </div>
+  <!-- </div> -->
   <DefaultFooter />
 </template>

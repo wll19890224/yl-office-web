@@ -49,22 +49,22 @@ const router = createRouter({
     {
       path: "/pages/landing-pages/our-vision",
       name: "vision",
-      component: VisionView,
+      component: AboutView,
     },
     {
       path: "/pages/landing-pages/choose-us",
       name: "choose-us",
-      component: ChooseView,
+      component: AboutView,
     },
     {
       path: "/pages/landing-pages/achievement",
       name: "achievement",
-      component: Achievement,
+      component: AboutView,
     },
     {
       path: "/pages/landing-pages/journey",
       name: "journey",
-      component: JourneyView,
+      component: AboutView,
     },
     {
       path: "/pages/landing-pages/upload-data",

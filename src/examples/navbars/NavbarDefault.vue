@@ -328,7 +328,14 @@ watch(
                           class="dropdown-item ps-3 border-radius-md mb-1"
                         :to="{ name: 'breastcancer' }"
                       >
-                        Breast cancer prognosis
+                        Breast cancer prognosis prediction
+                      </RouterLink>
+
+                      <RouterLink 
+                          class="dropdown-item ps-3 border-radius-md mb-1"
+                        :to="{ name: 'breastcancer' }"
+                      >
+                        RNA-seq data analysis
                       </RouterLink>
                     </div>
                   </div>

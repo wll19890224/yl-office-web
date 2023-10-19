@@ -784,7 +784,7 @@ onMounted(() => {
                     >
                       <a-button>
                         <upload-outlined></upload-outlined>
-                        Upload gene expression data, Upload survival data
+                        Upload gene expression data
                       </a-button>
                     </a-upload>
                     <div v-for="(file, index) in fileListProgres" :key="index">
@@ -794,6 +794,29 @@ onMounted(() => {
                       <a-progress :percent="file.percent" />
                     </div>
                   </div>
+
+                  <div class="upload_three" style="margin-right:15px" v-if="isNeedUplaodGen == true">
+                    <a-upload
+                      v-model:file-list="fileList"
+                      :showUploadList="false"
+                      name="file3"
+                      :multiple="true"
+                      :beforeUpload="beforeUpload2"
+                      @change="handleFileChange2"
+                    >
+                      <a-button>
+                        <upload-outlined></upload-outlined>
+                        Upload survival data
+                      </a-button>
+                    </a-upload>
+                    <div v-for="(file, index) in fileListProgres3" :key="index">
+                      <p style="margin: 0px; margin-bottom: 5px">
+                        {{ file3.name }}
+                      </p>
+                      <a-progress :percent="file3.percent" />
+                    </div>
+                  </div>
+                  
                   <div class="upload_two" v-if="isNeedUplaodclinical == true">
                     <a-upload
                       v-model:file-list="fileList2"
