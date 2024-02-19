@@ -11,7 +11,7 @@ import bg0 from "@/assets/img/vue-mk-header.jpg";
 //dep
 import Typed from "typed.js";
 
-const body = document.getElementsByTagName("body")[0];
+const body = document.getElementsByTagName("body")[1];
 //hooks
 onMounted(() => {
   body.classList.add("about-us");
