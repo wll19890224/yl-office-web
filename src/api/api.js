@@ -4,7 +4,7 @@ import axios from '@/utils/requestFile.js'
 export const uploadApi = (url,formData,contentType,onUploadProgress,) => {
   return axios({
     url: url,
-    method: 'PUT',
+    method: 'GET',
     data: formData,
     // headers:{
     //   // 'Content-Type': 'multipart/form-data'
